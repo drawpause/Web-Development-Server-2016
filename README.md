@@ -6,7 +6,7 @@ Includes [Mailcatcher](http://mailcatcher.me/) so you don't spam your clients by
 
 # Installing
 ```
-git clone git@github.com:drawpause/Web-Development-Server-2016.git webserver
+git clone git@github.com:drawpause/minimalist-lemp
 cd webserver
 vagrant up
 ```
