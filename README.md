@@ -1,4 +1,4 @@
-# Web-Development-Server-2016
+# minimalist-lemp
 A minimalist, low-memory-footprint Vagrant setup for a basic LEMP (Linux, nginx, MySQL and PHP) box.
 Provision is done by a simple shell script instead of adding extra layers of "helper" apps.
 
