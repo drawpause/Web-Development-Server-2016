@@ -29,9 +29,20 @@ if ! [ -L /var/www ]; then
   ln -fs /vagrant/public_html /var/www
 fi
 
+echo "Installing and configuring Mailcatcher. Go to [YOUR_IP]:1080 to see the web interface"
+aptitude -y install ruby-dev
+aptitude -y install libsqlite3-dev
+gem install mailcatcher
+mailcatcher --http-ip 192.168.0.199 --smtp-ip 127.0.0.1
+sed -i "s/;sendmail_path =/sendmail_path = \/usr\/local\/bin\/catchmail -f dev@your.nginx.server/" /etc/php5/fpm/php.ini
+service php5-fpm restart
+
+
 echo "Configuring Nginx"
 cp /vagrant/provision/config/nginx_vhost /etc/nginx/sites-available/nginx_vhost
 ln -s /etc/nginx/sites-available/nginx_vhost /etc/nginx/sites-enabled/
 rm -rf /etc/nginx/sites-available/default
 service nginx restart
 echo "Done!"
+
+
