@@ -2,7 +2,12 @@
 A minimalist, low-memory-footprint Vagrant setup for a basic LEMP (Linux, nginx, MySQL and PHP) box.
 Provision is done by a simple shell script instead of adding extra layers of "helper" apps.
 
-Includes [Mailcatcher](http://mailcatcher.me/) so you don't spam your clients by accident.
+Includes:
+- Official Ubuntu Server 14.04 LTS 32bit (Trusty Tahr)
+- NGINX
+- PHP5
+- MySQL
+- [Mailcatcher](http://mailcatcher.me/) so you don't spam your clients by accident.
 
 # Installing
 ```
