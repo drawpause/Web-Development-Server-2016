@@ -9,10 +9,14 @@ Includes:
 - MySQL
 - [Mailcatcher](http://mailcatcher.me/) so you don't spam your clients by accident.
 
+# Requirements
+- [VirtualBox](https://www.virtualbox.org/)
+- [Vagrant](https://www.vagrantup.com/)
+
 # Installing
 ```
-git clone git@github.com:drawpause/minimalist-lemp
-cd webserver
+git clone https://github.com/drawpause/minimalist-lemp.git
+cd minimalist-lemp
 vagrant up
 ```
 
