@@ -31,7 +31,7 @@ Vagrant.configure(2) do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  #config.vm.network "public_network"
+  config.vm.network "public_network"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
@@ -39,7 +39,8 @@ Vagrant.configure(2) do |config|
   # argument is a set of non-required options.
   #config.vm.synced_folder "public_html/", "/var/www/public_html/", create: true
   config.vm.synced_folder ".", "/vagrant",
-  owner: "www-data", group: "vagrant"
+  owner: "vagrant", group: "www-data",
+  mount_options: ["dmode=775,fmode=664"]
 
 
   # Provider-specific configuration so you can fine-tune various
@@ -56,6 +57,11 @@ Vagrant.configure(2) do |config|
   #
   # View the documentation for the provider you are using for more
   # information on available options.
+ 
+  # Set the CPU execution cap to 50%. This way the virtual machine can only use 50% of the host CPU.
+  config.vm.provider "virtualbox" do |v|
+    v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+  end
 
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
   # such as FTP and Heroku are also available. See the documentation at
