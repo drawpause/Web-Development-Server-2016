@@ -42,7 +42,6 @@ Vagrant.configure(2) do |config|
   owner: "vagrant", group: "www-data",
   mount_options: ["dmode=775,fmode=664"]
 
-
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -57,7 +56,7 @@ Vagrant.configure(2) do |config|
   #
   # View the documentation for the provider you are using for more
   # information on available options.
- 
+
   # Set the CPU execution cap to 50%. This way the virtual machine can only use 50% of the host CPU.
   config.vm.provider "virtualbox" do |v|
     v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
